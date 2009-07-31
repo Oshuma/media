@@ -1,5 +1,6 @@
 require 'uri'
 
+# TODO: URI parsing.
 class GithubMedia
   BASE_URL = 'http://github.com'
 
