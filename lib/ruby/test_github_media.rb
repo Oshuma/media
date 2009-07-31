@@ -1,4 +1,4 @@
-require 'github_media'
+require File.join(File.dirname(__FILE__), 'github_media')
 require 'test/unit'
 
 class GithubMediaTest < Test::Unit::TestCase
