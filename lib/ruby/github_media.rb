@@ -1,6 +1,5 @@
 require 'uri'
 
-# TODO: URI parsing.
 class GithubMedia
   BASE_URL = 'http://github.com'
 
@@ -13,18 +12,24 @@ class GithubMedia
   #   }
   #   media = GithubMedia.new(options)
   def initialize(options = {})
-    @options = options
-    @base_path = [
+    @options   = options
+    @base_path = create_base_path
+  end
+
+  def link_to(filename)
+    URI.parse([@base_path, filename].join('/')).to_s
+  end
+
+  private
+
+  def create_base_path
+    URI.parse([
       BASE_URL,
       @options[:user],
       @options[:repo],
       'raw',
       @options[:branch]
-    ].join('/')
-  end
-
-  def link_to(filename)
-    [@base_path, filename].join('/')
+    ].join('/')).to_s
   end
 
 end # GithubMedia
