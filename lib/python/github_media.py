@@ -10,7 +10,7 @@ class GithubMedia(object):
   #   }
   #   media = GithubMedia(options)
   def __init__(self, options = {}):
-    self.BASE_URL = 'http://github.com'
+    self.BASE_URL  = 'http://github.com'
     self.options   = options
   
   def create_base_path(self):
